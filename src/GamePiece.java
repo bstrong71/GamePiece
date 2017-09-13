@@ -14,14 +14,6 @@ public class GamePiece {
         this.color = "red";
     }
 
-//    public GamePiece(int positionX, int positionY, boolean frozen, String name, String color) {
-//        this.positionX = positionX;
-//        this.positionY = positionY;
-//        this.frozen = frozen;
-//        this.name = name;
-//        this.color = color;
-//    }
-
     // getters and setters
     public int getPositionX() {
         return positionX;
@@ -60,6 +52,7 @@ public class GamePiece {
             System.out.println("This piece is frozen and can't be moved.");
         }
     }
+
     // method to freeze
     public void freeze() {
         if(!this.isFrozen()){

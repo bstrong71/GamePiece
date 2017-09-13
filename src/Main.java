@@ -22,14 +22,25 @@ public class Main {
 
         // test if unfrozen piece can be moved
         System.out.println("Position x: " + newGamePiece.positionX + "\nPosition y: " + newGamePiece.positionY + "\nFrozen Status: " + newGamePiece.isFrozen());
-        newGamePiece.move(2,3);
-        System.out.println("New Position x: " + newGamePiece.positionX + "\nNew Position y: " + newGamePiece.positionY + "\nFrozen Status: " + newGamePiece.isFrozen());
+        int newX = 2,
+            newY = 3;
+        newGamePiece.move(newX,newY);
+        if ((newGamePiece.getPositionX() == newX) && (newGamePiece.getPositionY() == newY)) {
+            System.out.println("SUCCESS: The unfrozen game piece moved");
+        } else {
+            System.out.println("FAILURE: The unfrozen game piece did not move");
+        }
 
         // freeze piece for next test
         newGamePiece.freeze();
-        // test if frozen piece will prevent move
-        System.out.println("Current Frozen status: " + newGamePiece.isFrozen());
-        newGamePiece.move(3,4);
-        System.out.println("Position x is still: " + newGamePiece.positionX + "\nPosition y is still: " + newGamePiece.positionY);
+        // test if frozen piece is able to be moved
+        newX = 4;
+        newY = 6;
+        newGamePiece.move(newX, newY);
+        if ((newGamePiece.getPositionX() != newX) && (newGamePiece.getPositionY() != newY)) {
+            System.out.println("SUCCESS: The frozen game piece did not move");
+        } else {
+            System.out.println("FAILURE: The frozen game piece moved and shouldn't have");
+        }
     }
 }
